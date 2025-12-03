@@ -31,29 +31,40 @@ func solve(s *Solution, l string) {
 	for i := from; i <= to; i++ {
 		str := strconv.FormatInt(i, 10)
 
-		repeat := isAllRepeat(str)
+		repeat := isInvalid(str)
 		if repeat {
 			s.invalids = append(s.invalids, i)
+			// fmt.Printf("%d\n", i)
 			continue
 		}
 
 		if str[:len(str)/2] == str[len(str)/2:] {
 			s.invalids = append(s.invalids, i)
+			// fmt.Printf("%d\n", i)
 			continue
 		}
 	}
 }
 
-func isAllRepeat(s string) bool {
+func isInvalid(s string) bool {
 	if len(s) == 1 {
 		return false
 	}
 
-	if (len(s) % 2) == 1 {
-		return false
-	}
+	// if (len(s) % 2) == 1 {
+	// 	return false
+	// }
 
 	isSame := true
+
+	for i := 0; i < len(s); i++ {
+		j := 1
+		for {
+			if j == len(s) {
+				break
+			}
+		}
+	}
 
 	for i := range len(s) - 1 {
 		if s[i] == s[i+1] {
